@@ -1,0 +1,22 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+    health:
+      show-detail: always
+
+server:
+  port: 9094
+
+spring:
+  application:
+    name: MICRO-METER
+  config:
+    enabled: true
+    uri: http://localhost:9296
+
+
+
+
+
