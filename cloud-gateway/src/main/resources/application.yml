@@ -1,12 +1,16 @@
 server:
   port: 9191
 
-  
+
+
 spring:
   application:
     name: API-GATEWAY
   cloud:
     gateway:
+      httpclient:
+        connectTimeout: 5000
+        responseTimeout: 5000
       routes:
       - id: USER-SERVICE
         uri: lb://USER-SERVICE
@@ -29,6 +33,16 @@ spring:
               fallbackUri: forward:/departmentServiceFallback
 
 
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId: 350752795641-2megrg15i329ngdt10r07lajidvvr1c2.apps.googleusercontent.com
+            clientSecret: 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
+            scope:
+              - email
+              - profile
 
 
 
